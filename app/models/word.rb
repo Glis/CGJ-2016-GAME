@@ -9,4 +9,11 @@
 #
 
 class Word < ActiveRecord::Base
+
+
+
+  def self.get_random_record
+    self.order("RANDOM()").first
+  end
+
 end

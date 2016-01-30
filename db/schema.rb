@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130073942) do
+ActiveRecord::Schema.define(version: 20160130151031) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160130073942) do
     t.integer  "game_word_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "position"
   end
 
   add_index "minions", ["game_id"], name: "index_minions_on_game_id"
