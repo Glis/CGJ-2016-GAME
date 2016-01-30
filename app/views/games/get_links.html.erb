@@ -2,11 +2,19 @@
   <div class="row">
     <div class="col-md-12">
       <h1>Invite your minions!!</h1>
-      <% @game.minions.each do |minion| %>
-        <%= link_to "Minion #{minion.name}", minion_show_path(minion)%>
-        <button class="btn btn-info">COPY</button>
-      <% end %>
-      <button class="btn btn-primary btn-block">START!</button>
+      <div class="row">
+        <% @game.minions.each do |minion| %>
+            <div class="col-sm-6">
+              <%= link_to "Minion #{minion.position}: #{minion.name}", minion_show_path(minion)%>
+              <button class="btn btn-info">COPY</button>
+            </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <%= link_to "START!", game_show_path(@game), class:"btn btn-primary btn-block" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
