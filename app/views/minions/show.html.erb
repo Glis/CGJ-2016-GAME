@@ -4,11 +4,11 @@
         <h2>Wizard Image</h2>
       </div>
       <div class="col-sm-6">
-        <h1> YOUR TURN IS <%= @minion.position %></h1>
+        <h1> YOUR TURN IS <%= @minion.position+1 %></h1>
         <ul>
           <li><%= @fake_words[0].name %></li>
           <li><b class="text-danger"><%= @minion.game_word.word.name %></b></li>
-          <li><%= @fake_words[0].name %></li>
+          <li><%= @fake_words[1].name %></li>
         </ul>
       </div>
     </div>

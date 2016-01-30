@@ -1,3 +1,25 @@
 <div class="container">
-    <h1>MASTER GAME!!</h1>
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Wizard Gif</h1>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= form_tag(minion_create_path(5), method: :post) do %>
+              <h1>READY TO CAST!!!</h1>
+              <%= text_area_tag 'incantation', nil, rows: 11, class:"form-control", placeholder:"Write Here the Spell parts from all your minions in order" %>
+              <br>
+              <%= submit_tag "Summon!", class: "btn btn-primary btn-block" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Leyenda criptográfica opcional</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
