@@ -1,8 +1,7 @@
 class MinionsController < ApplicationController
   def new
     @game = Game.find params[:id]
-
-    @minions_quantity= params[:quantity].to_i
+    @minions_quantity= @game.minions_quantity
   end
 
   def create
@@ -10,11 +9,22 @@ class MinionsController < ApplicationController
     names = params[:names]
     game= Game.find params[:id]
 
-    minions=[]
+    minions_count = Minion.where(game_id: game).count
 
     names.length.times do |i|
       active_game_word=GameWord.create(game:game, word:Word.get_random_record)
-      minions << Minion.create(name:names[i.to_s], game:game, game_word:active_game_word, position:i+1)
+      minion = Minion.find_by name:names[i.to_s]
+      if minions_count < game.minions_quantity
+        minion = Minion.new unless minion
+      end
+
+      if minion
+        minion.name = names[i.to_s]
+        minion.game = game
+        minion.game_word = active_game_word
+        minion.position = i+1
+        minion.save
+      end
     end
 
     redirect_to game_links_path(game)

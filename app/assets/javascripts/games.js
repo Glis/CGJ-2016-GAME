@@ -9,7 +9,7 @@ $(document).ready(function(){
     $(document).keypress(function(e) {
         if(e.which == 13) {
           if($startInput.val().toLowerCase() == "start") {
-            alert("START!");
+            $(location).attr('href', $startInput.data('url'))
           }
         }
     });
