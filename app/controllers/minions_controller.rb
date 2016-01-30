@@ -14,7 +14,7 @@ class MinionsController < ApplicationController
 
     names.length.times do |i|
       active_game_word=GameWord.create(game:game, word:Word.get_random_record)
-      minions << Minion.create(name:names[i], game:game, game_word:active_game_word, position:i)
+      minions << Minion.create(name:names[i.to_s], game:game, game_word:active_game_word, position:i+1)
     end
 
     redirect_to game_links_path(game)

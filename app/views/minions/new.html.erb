@@ -1,24 +1,30 @@
 <div class="container">
-    <h1>Name your minions!</h1>
-    <%= form_tag(minion_create_path(@game), method: :post) do %>
-        <div class="row">
-            <div class="col-sm-6">
-              <div class="form-horizontal">
-                <% @minions_quantity.times do |i| %>
-                <div class="form-group">
-                  <%= label_tag "Minion #{i+1}\'s name" ,nil, class:"col-sm-4 control-label" %>
-                  <div class="col-sm-8">
-                    <%= text_field_tag "names[#{i}]", nil, class: 'form-control' %>
-                  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title1">Name your minions!</h1>
+    </div>
+  </div>
+  <%= form_tag(minion_create_path(@game), method: :post) do %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-horizontal">
+          <% @minions_quantity.times do |i| %>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <h2 class="title2 text-right">
+                    <%= "Minion #{i+1}\'s name" %>
+                  </h2>
                 </div>
-                <% end %>
+                <div class="col-md-6 minions-names">
+                  <%= text_field_tag "names[#{i}]", nil, class: 'clear-style minions' %>
+                </div>
               </div>
             </div>
+          <% end %>
         </div>
-        <div class="row">
-            <div class="col-sm-2">
-                <%= submit_tag "Onwards!", class: "btn btn-primary btn-lg btn-block" %>
-            </div>
-        </div>
-    <% end %>
+      </div>
+    </div>
+    <%= submit_tag "Onwards!", class: "hide" %>
+  <% end %>
 </div>

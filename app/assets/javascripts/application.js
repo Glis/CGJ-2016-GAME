@@ -21,13 +21,4 @@ $(document).ready(function(){
   //     req = this.requestFullScreen || this.webkitRequestFullScreen || this.mozRequestFullScreen;
   //     req.call(this);
   // }
-  chrome.app.runtime.onLaunched.addListener(
-    function() {
-        chrome.app.window.create('/',
-            {
-                state: "fullscreen",
-            }
-        );
-    }
-);
 });
