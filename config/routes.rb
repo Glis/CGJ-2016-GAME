@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
-  get 'minions/new'
-
-  get 'minions/create'
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "games#welcome"
 
   get 'games/welcome' => 'games#welcome', as: :welcome
   get 'games/new' => 'games#new', as: :game_new
+  post 'games/create' => 'games#create', as: :game_create
 
   get 'games/:id/get_links' => 'games#get_links', as: :game_links
   get 'games/:id/show' => 'games#show', as: :game_show
   get 'games/:id/results' => 'games#results', as: :game_results
 
   get 'games/:id/minions/new' => 'minions#new', as: :minion_new
-  get 'games/:id/minions/create' => 'minions#create', as: :minion_create
+  post 'games/:id/minions/create' => 'minions#create', as: :minion_create
   get 'minions/:id/show' => 'minions#show', as: :minion_show
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -66,13 +66,13 @@ ActiveRecord::Schema.define(version: 20160130073942) do
   create_table "minions", force: :cascade do |t|
     t.string   "name"
     t.integer  "game_id"
-    t.integer  "game_world_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "game_word_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "minions", ["game_id"], name: "index_minions_on_game_id"
-  add_index "minions", ["game_world_id"], name: "index_minions_on_game_world_id"
+  add_index "minions", ["game_word_id"], name: "index_minions_on_game_word_id"
 
   create_table "words", force: :cascade do |t|
     t.string   "name"
