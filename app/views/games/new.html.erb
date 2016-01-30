@@ -13,16 +13,12 @@
                 <h2 class="title2 text-right">How many minions do you want?</h2>
               </div>
               <div class="col-sm-6">
-                <%= text_field_tag 'quantity', '', min:3, class: 'clear-style many-minions' %>
+                <%= text_field_tag 'quantity', '', min:3, class: 'clear-style minions' %>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-2">
-          <%= submit_tag "Next!", class: "btn btn-primary btn-lg btn-block hide" %>
-        </div>
-      </div>
+      <%= submit_tag "Next!", class: "hide" %>
   <% end %>
 </div>

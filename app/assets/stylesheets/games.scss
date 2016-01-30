@@ -13,6 +13,15 @@
   height: 100%;
 }
 
+.white-pill {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  min-width: 70px;
+  height: 20px;
+  padding: 1px;
+}
+
 .title1{
   font-size: 80px;
 }
@@ -21,9 +30,17 @@
 
 }
 
-.many-minions {
+.inline{
+  display: inline-block;
+}
+
+.minions {
   height: 70px;
   font-size: 40px;
+}
+
+.minion-pill {
+  margin-left: 5px;
 }
 
 .hide {
@@ -35,4 +52,5 @@
   border:none;
   box-shadow: none;
   background-color: transparent;
+  width: 100%;
 }
