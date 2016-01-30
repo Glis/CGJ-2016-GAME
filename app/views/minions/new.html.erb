@@ -5,9 +5,9 @@
           <div class="form-horizontal">
             <% @minions_quantity.times do |i| %>
             <div class="form-group">
-              <%= label_tag "Minion #{i}\'s name" ,nil, class:"col-sm-4 control-label" %>
+              <%= label_tag "Minion #{i+1}\'s name" ,nil, class:"col-sm-4 control-label" %>
               <div class="col-sm-8">
-                <%= text_field_tag 'quantity', nil, class: 'form-control' %>
+                <%= text_field_tag "name-#{i}", nil, class: 'form-control' %>
               </div>
             </div>
             <% end %>
