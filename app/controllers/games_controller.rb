@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   end
 
   def get_links
-
+    @game = Game.find params[:id]
   end
 
   def show
