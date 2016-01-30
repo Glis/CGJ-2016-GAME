@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function(){
+  // this.body.onclick = function() {
+  //     req = this.requestFullScreen || this.webkitRequestFullScreen || this.mozRequestFullScreen;
+  //     req.call(this);
+  // }
+  chrome.app.runtime.onLaunched.addListener(
+    function() {
+        chrome.app.window.create('/',
+            {
+                state: "fullscreen",
+            }
+        );
+    }
+);
+});

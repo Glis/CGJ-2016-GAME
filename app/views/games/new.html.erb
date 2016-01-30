@@ -1,13 +1,19 @@
-<div class="container">
-  <h1>Welcome Summoner!</h1>
+<div class="container ">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title1">You're the Summoner!</h1>
+    </div>
+  </div>
   <%= form_tag(game_create_path, method: :post) do %>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-12">
           <div class="form-horizontal">
             <div class="form-group">
-              <%= label_tag 'How many minions do you want?',nil, class:"col-sm-4 control-label" %>
-              <div class="col-sm-8">
-                <%= number_field_tag 'quantity', 3, min:3,class: 'form-control' %>
+              <div class="col-sm-6">
+                <h2 class="title2 text-right">How many minions do you want?</h2>
+              </div>
+              <div class="col-sm-6">
+                <%= text_field_tag 'quantity', '', min:3, class: 'clear-style many-minions' %>
               </div>
             </div>
           </div>
@@ -15,9 +21,8 @@
       </div>
       <div class="row">
         <div class="col-sm-2">
-          <%= submit_tag "Next!", class: "btn btn-primary btn-lg btn-block" %>
+          <%= submit_tag "Next!", class: "btn btn-primary btn-lg btn-block hide" %>
         </div>
       </div>
   <% end %>
-
 </div>
