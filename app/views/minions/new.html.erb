@@ -1,7 +1,22 @@
 <div class="container">
     <h1>Name your minions!</h1>
-    Minion 1
-    Minion 2
-    Minion 3
-    ....
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-horizontal">
+            <% @minions_quantity.times do |i| %>
+            <div class="form-group">
+              <%= label_tag "Minion #{i}\'s name" ,nil, class:"col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= text_field_tag 'quantity', nil, class: 'form-control' %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <%= link_to "Next!", minion_create_path, class: "btn btn-primary btn-lg btn-block" %>
+        </div>
+    </div>
 </div>
