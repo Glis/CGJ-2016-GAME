@@ -4,13 +4,13 @@ class GamesController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def create
-    game = Game.create points:0
+    game = Game.create points:0, minions_quantity: params[:quantity]
 
-    redirect_to minion_new_path(game, quantity:params[:quantity])
+    redirect_to minion_new_path game
     #NO TIENE VISTA!
   end
 
