@@ -10,10 +10,12 @@
 
 class Word < ActiveRecord::Base
 
-
-
   def self.get_random_record
     self.order("RANDOM()").first
+  end
+
+  def self.get_random_record_without words
+    self.where("name NOT IN (?)", [words]).order("RANDOM()").first
   end
 
 end
