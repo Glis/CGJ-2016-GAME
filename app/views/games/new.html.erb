@@ -1,7 +1,7 @@
 <div class="container ">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="title1">You're the Summoner!</h1>
+      <h1 class="title1">Welcome Summoner...</h1>
     </div>
   </div>
   <%= form_tag(game_create_path, method: :post) do %>
@@ -13,7 +13,7 @@
                 <h2 class="title2 text-right">How many minions will be helping you?</h2>
               </div>
               <div class="col-sm-6">
-                <%= text_field_tag 'quantity', '', min:3, class: 'clear-style minions' %>
+                <%= number_field_tag 'quantity', 3, min:3, max:10, class: 'clear-style minions' %>
               </div>
             </div>
           </div>
