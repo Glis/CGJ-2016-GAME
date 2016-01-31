@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
-      <div class="col-sm-6">
-        <h2>Wizard Image</h2>
+      <div class="col-sm-5">
+        <h1 class="title1 text-center">Wizard Image</h1>
       </div>
-      <div class="col-sm-6">
-        <h1> YOUR TURN IS <%= @minion.position+1 %></h1>
-        <ul>
-          <li><%= @fake_words[0].name %></li>
-          <li><b class="text-danger"><%= @minion.game_word.word.name %></b></li>
-          <li><%= @fake_words[1].name %></li>
-        </ul>
+      <div class="col-sm-7">
+        <div class="text-center">
+          <h1 class="title1"> YOUR TURN IS <%= @minion.position %></h1>
+          <h2 class="subtitle"><%= @fake_words[0].name %></h2>
+          <h2 class="subtitle"><b><%= @minion.game_word.word.name %></b></h2>
+          <h2 class="subtitle"><%= @fake_words[1].name %></h2>
+        </div>
       </div>
     </div>
 </div>
