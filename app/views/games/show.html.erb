@@ -1,7 +1,7 @@
 <div class="container game" data-spell-length='<%= @game.spell_length%>'>
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="title1">READY TO CAST!!!</h1>
+      <h1 class="title1">Casting for <span class="timer">0</span>secs!</h1>
     </div>
   </div>
   <div class="row">
@@ -18,6 +18,7 @@
   <div class="row">
     <div class="col-sm-12">
       <%= form_tag(game_results_path(@game), method: :post) do %>
+          <%= hidden_field_tag 'time' %>
           <%= text_area_tag 'spell', nil, rows: 11, class:"clear-style minions text-center spell-input" %>
           <br>
           <%= submit_tag "Summon!", class: "hide spell-submit" %>
