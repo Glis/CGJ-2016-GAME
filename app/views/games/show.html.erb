@@ -1,22 +1,30 @@
-<div class="container">
+<div class="container game" data-spell-length='<%= @game.spell_length%>'>
   <div class="row">
-    <div class="col-sm-6">
-      <h1>Wizard Gif</h1>
+    <div class="col-md-12">
+      <h1 class="title1">READY TO CAST!!!</h1>
     </div>
-    <div class="col-sm-6">
-      <div class="row">
-        <div class="col-sm-12">
-          <%= form_tag(minion_create_path(5), method: :post) do %>
-              <h1>READY TO CAST!!!</h1>
-              <%= text_area_tag 'incantation', nil, rows: 11, class:"form-control", placeholder:"Write Here the Spell parts from all your minions in order" %>
-              <br>
-              <%= submit_tag "Summon!", class: "btn btn-primary btn-block" %>
-          <% end %>
+  </div>
+  <div class="row">
+    <% @game.minions.each do |minion|%>
+      <div class="col-md-4">
+        <div class="minion" data-position="<%= minion.position %>" data-name="<%= minion.name %>">
+          <h3 class="title3">
+            <%= minion.name %>
+          </h2>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_tag(minion_create_path(5), method: :post) do %>
+          <%= text_area_tag 'incantation', nil, rows: 11, class:"clear-style minions text-center spell-input" %>
+          <br>
+          <%= submit_tag "Summon!", class: "hide" %>
+      <% end %>
       <div class="row">
         <div class="col-sm-12">
-          <h1>Leyenda criptográfica opcional</h1>
+          <h2 class="title2">Leyenda criptográfica opcional</h2>
         </div>
       </div>
     </div>

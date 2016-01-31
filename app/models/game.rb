@@ -2,12 +2,17 @@ class Game < ActiveRecord::Base
   has_many :minions
   has_many :game_words
 
-  def encrypt_string
+  def spell_length
     count = 0
-    encrypted = ""
     self.game_words.each do |game_word|
       count += game_word.word.name.length
     end
+    count
+  end
+
+  def encrypt_string
+    encrypted = ""
+    count = spell_length
 
     count.times do |i|
       self.game_words.each do |game_word|
