@@ -7,9 +7,8 @@
   <div class ="row">
     <div class="col-sm-12 text-center">
       <h1 class="title1"> Your spell is <%= @game.solution_percentage(@player_solution).round() %>% accurate!!</h1>
+      <% if @game.solution_percentage_cesar(@player_solution).round() < 0 %>
       <h3 class="title3"> in <%=@player_time%> secs </h3>
-
-      <% if @game.solution_percentage(@player_solution).round() < 0 %>
         <h3 class="title3">Negative!? Are you even trying?</h3>
       <% end %>
     </div>
