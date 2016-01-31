@@ -1,12 +1,12 @@
 <div class="container game" data-spell-length='<%= @game.spell_length%>'>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <h1 class="title1">READY TO CAST!!!</h1>
     </div>
   </div>
   <div class="row">
     <% @game.minions.order(:position).each do |minion|%>
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <div class="minion" data-position="<%= minion.position %>" data-name="<%= minion.name %>" data-word="<%= minion.game_word.word.name%>">
           <h3 class="title3">
             <%= minion.name %>
@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <%= form_tag(game_results_path(@game), method: :post) do %>
           <%= text_area_tag 'spell', nil, rows: 11, class:"clear-style minions text-center spell-input" %>
           <br>
