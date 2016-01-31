@@ -120,7 +120,8 @@ $(document).ready(function(){
         if(isActive) {
           console.log("El juego continua!");
         }else{
-          alert("Spell has been casted!");
+          $(location).attr('href', '/games/'+gameId+'/results');
+          //alert("Spell has been casted!");
           //  $.ajax({
           //      method: "POST",
           //      url: '/games/'+gameId+'/results'
