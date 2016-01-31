@@ -44,8 +44,8 @@ class Game < ActiveRecord::Base
     encrypted = ""
     dictionary="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     self.game_words.each do |word_to_encrypt|
-        word_to_encrypt.upcase!
-        word_to_encrypt.each_char do |letter|
+        word_to_encrypt.word.name.upcase!
+        word_to_encrypt.word.name.each_char do |letter|
             encrypted << dictionary[dictionary.index(letter) - rule]
         end
     end
@@ -56,8 +56,8 @@ class Game < ActiveRecord::Base
     encrypted = ""
     dictionary="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     self.game_words.each do |word_to_encrypt|
-        word_to_encrypt.upcase!
-        word_to_encrypt.each_char do |letter|
+        word_to_encrypt.word.name.upcase!
+        word_to_encrypt.word.name.each_char do |letter|
             encrypted << dictionary[(dictionary.index(letter)+1)*-1]
         end
     end
@@ -84,4 +84,47 @@ class Game < ActiveRecord::Base
       end
       (good * 100.0) / correct_solution.length
   end
+
+   def solution_percentage_cesar(player_solution)
+      good = 0
+      bad = 0
+
+      correct_solution = self.cesar_encrypt_string 2
+      return 100.0 if correct_solution == player_solution
+
+      correct_solution.split('').each.with_index do |character, i|
+        if i < player_solution.length
+          if correct_solution[i] == player_solution[i]
+            good += 1
+          end
+        end
+      end
+
+      if correct_solution.length < player_solution.length
+        good -= player_solution.length - correct_solution.length
+      end
+      (good * 100.0) / correct_solution.length
+  end
+
+   def solution_percentage_atbash(player_solution)
+      good = 0
+      bad = 0
+
+      correct_solution = self.atbash_encrypt_string
+      return 100.0 if correct_solution == player_solution
+
+      correct_solution.split('').each.with_index do |character, i|
+        if i < player_solution.length
+          if correct_solution[i] == player_solution[i]
+            good += 1
+          end
+        end
+      end
+
+      if correct_solution.length < player_solution.length
+        good -= player_solution.length - correct_solution.length
+      end
+      (good * 100.0) / correct_solution.length
+  end
+
 end

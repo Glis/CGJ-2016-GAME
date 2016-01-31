@@ -3,12 +3,19 @@ $(document).ready(function(){
   var $spellInput;
   var $spellSubmit;
   var $resultBackButton;
+  var $codeSubmit;
+  var $code;
+  var $timer;
+  var $time;
 
   var $minion;
   var turns = [];
   var current_turn = 0;
   var skiped = 0;
   var spellLength;
+
+  var tick;
+  var seconds = 0;
 
   $startInput = $(".start-input");
   $spellInput = $(".spell-input");
@@ -63,10 +70,38 @@ $(document).ready(function(){
     });
   }
 
+  $code = $("#code");
+  if($code.length) {
+    $codeSubmit = $(".code-submit");
+    $code.keydown(function(e) {
+      if(e.keyCode === 13) {
+        if($(this).val().toLowerCase()=="new") {
+          e.preventDefault();
+          $(location).attr('href', '/games/new')
+          return false;
+        } else {
+          e.preventDefault();
+          $codeSubmit.click();
+          return true;
+        }
+      }
+    });
+  }
+
   if($spellInput.length) {
     //En la vista game start!
     spellLength = parseInt($(".game").data("spell-length"), 10);
     $spellSubmit = $(".spell-submit");
+    $timer = $(".timer");
+    $time = $("#time");
+
+    tick = setInterval(function(){
+      if($timer.length) {
+        $timer.html(seconds);
+        $time.val(seconds);
+        seconds++;
+      }
+    }, 1000);
 
     //Obtiene los turnos del DOM
     $minion = $('.minion');
@@ -109,6 +144,8 @@ $(document).ready(function(){
         }
       }
     });
+  } else {
+    //EN OTRA VISTA DISTINTA AL MAIN GAME!
   }
 
   if($resultBackButton.length){

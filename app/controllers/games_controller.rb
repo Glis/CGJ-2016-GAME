@@ -1,10 +1,10 @@
 class GamesController < ApplicationController
   def welcome
-
+    @tutorial_message = "Write new to start a new game"
   end
 
   def new
-
+    @tutorial_message = "Press up/down arrows to change quantity"
   end
 
   def create
@@ -26,6 +26,7 @@ class GamesController < ApplicationController
   def results
     @game = Game.find params[:id]
     @player_solution = params[:spell]
+    @player_time = params[:time]
   end
 
   def show_joins
