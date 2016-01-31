@@ -149,8 +149,10 @@ $(document).ready(function(){
   }
 
   if($resultBackButton.length){
-      $(document).keypress(function(event){
-          $resultBackButton[0].click();
-      });
+    $(document).keypress(function(e){
+      if(e.keyCode === 13) {
+        $resultBackButton[0].click();
+      }
+    });
   }
 });
