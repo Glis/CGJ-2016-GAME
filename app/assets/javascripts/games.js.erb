@@ -5,9 +5,12 @@ $(document).ready(function(){
   var $resultBackButton;
   var $codeSubmit;
   var $minionGame;
+  var $background;
+  var $backgroundResult;
   var $code;
   var $timer;
   var $time;
+  var $wizardImage;
 
   var $minion;
   var turns = [];
@@ -67,17 +70,6 @@ $(document).ready(function(){
     });
   }
 
-  function gameActive(gameId, callback) {
-      var active;
-      $.get( "/games/"+gameId+"/get", function( data ) {
-          if(data.status == "active"){
-              callback(true);
-          } else {
-              callback(false);
-          }
-      });
-  }
-
   $('.many-minions').focus();
 
   $startInput = $(".start-input");
@@ -90,6 +82,16 @@ $(document).ready(function(){
           }
         }
     });
+  }
+
+  $background = $(".background");
+  if($background.length) {
+    $('body').addClass('game-bg');
+  }
+
+  $background = $(".background-intro");
+  if($background.length) {
+      $('body').addClass('game-bg5');
   }
 
   $code = $(".code");
@@ -114,6 +116,7 @@ $(document).ready(function(){
   $minionGame = $(".minion-game");
   if($minionGame.length) {
     //En la vista de game del minion!
+    $('body').addClass('game-bg4');
     gameId = $minionGame.data("game");
     tock = setInterval(function(){
       gameActive(gameId, function(isActive) {
@@ -143,6 +146,8 @@ $(document).ready(function(){
   $spellInput = $(".spell-input");
   if($spellInput.length) {
     //En la vista game start!
+    $('body').addClass('game-bg2');
+
     spellLength = parseInt($(".game").data("spell-length"), 10);
     $spellSubmit = $(".spell-submit");
     $timer = $(".timer");
@@ -172,6 +177,14 @@ $(document).ready(function(){
     changeTurn();
 
     $spellInput.keydown(function(e) {
+      $wizardImage = $(".wizard-cast");
+      if ($wizardImage) {
+        if($wizardImage.data('status') == "idle") {
+          $wizardImage.attr( "src" , "<%= image_path "wizard.gif"%>" );
+          $wizardImage.data('status', "casting");
+        }
+      }
+
       if(e.keyCode === 13) {
         e.preventDefault();
         $spellSubmit.click();
@@ -202,11 +215,16 @@ $(document).ready(function(){
   }
 
   $resultBackButton= $(".result-back-button");
-  if($resultBackButton.length){
-    $(document).keypress(function(e){
-      if(e.keyCode === 13) {
-        $resultBackButton[0].click();
-      }
-    });
-  }
-});
+    $backgroundResult = $(".background-result");
+    if($backgroundResult.length) {
+      $('body').addClass('game-bg3');
+    }
+
+    if($resultBackButton.length){
+      $(document).keypress(function(e){
+        if(e.keyCode === 13) {
+          $resultBackButton[0].click();
+        }
+      });
+    }
+  });

@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def welcome
-    @tutorial_message = "Write 'new' to start a new game"
+    @tutorial_message = "Type 'new', then hit Enter to start a new game"
 
     redirect_mobile
   end
@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   end
 
   def get_links
-    @tutorial_message = "Write 'start' to begin the game"
+    @tutorial_message = "Type 'start', then hit Enter to begin the game"
     @game = Game.find params[:id]
   end
 

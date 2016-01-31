@@ -1,12 +1,12 @@
 <div class="container game" data-spell-length='<%= @game.spell_length%>'>
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="title1">Casting for <span class="timer">0</span>secs!</h1>
+      <h1 class="casting-title">Casting for <span class="timer">0</span> secs!</h1>
     </div>
   </div>
   <div class="row">
     <% @game.minions.order(:position).each do |minion|%>
-      <div class="col-sm-4 col-md-4">
+      <div class="col-sm-4 col-md-4 text-center">
         <div class="minion" data-position="<%= minion.position %>" data-name="<%= minion.name %>" data-word="<%= minion.game_word.word.name%>">
           <h3 class="title3">
             <%= minion.name %>
@@ -23,6 +23,16 @@
           <br>
           <%= submit_tag "Summon!", class: "hide spell-submit" %>
       <% end %>
+    </div>
+  </div>
+  <div class="row tip">
+    <div class="col-sm-12 text-center">
+      Type the cryptospell using your minions!
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= image_tag 'wizard_idle.gif', class:'wizard-cast', 'data-status'=> "idle" %>
     </div>
   </div>
 

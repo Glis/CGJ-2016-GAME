@@ -1,24 +1,28 @@
-<div class="container ">
+<div class="container background">
   <div class="row">
     <div class="col-sm-12">
       <h1 class="title1">Welcome Summoner...</h1>
     </div>
   </div>
   <%= form_tag(game_create_path, method: :post) do %>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-horizontal">
-            <div class="form-group">
-              <div class="col-xs-12 col-sm-6">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-horizontal">
+          <div class="form-group minion-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 text-center">
                 <h2 class="title2">How many minions will be helping you?</h2>
               </div>
-              <div class="col-xs-12 col-sm-3">
-                <%= number_field_tag 'quantity', 3, min:3,max:10, class: 'clear-style minions text-center' %>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 text-center">
+                <%= number_field_tag 'quantity', 3, min:3,max:10, class: 'clear-style choose-minions text-center' %>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <%= submit_tag "Next!", class: "hide" %>
+    </div>
+    <%= submit_tag "Next!", class: "hide" %>
   <% end %>
 </div>
