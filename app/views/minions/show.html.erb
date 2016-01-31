@@ -8,11 +8,12 @@
       <div class="row">
         <div class="col-xs-6">
           <div class="text-center">
-            <img src="http://placehold.it/150x150?text=MinionImg" alt="" class="img-responsive player-gif-img">
+            <%= image_tag "minion_small.png", class: "small-minion" %>
+            <!--<img src="http://placehold.it/150x150?text=MinionImg" alt="" class="img-responsive player-gif-img">-->
           </div>
         </div>
         <div class="col-xs-6">
-          <h1 class="title1 turn-name text-center"> Turn: <%= @minion.position %></h1>
+          <h1 class="title1 turn-name text-center"> Turn <%= @minion.position %></h1>
         </div>
       </div>
       <div class="row">
@@ -29,7 +30,8 @@
       <div class="row">
         <div class="col-sm-5">
           <div class="text-center">
-            <img src="http://placehold.it/450x450?text=MinionImg" alt="" class="img-responsive player-gif-img">
+            <%= image_tag "minion_big.png" %>
+            <!--<img src="http://placehold.it/450x450?text=MinionImg" alt="" class="img-responsive player-gif-img">-->
           </div>
         </div>
         <div class="col-sm-7">
