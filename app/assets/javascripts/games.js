@@ -5,7 +5,7 @@ $(document).ready(function(){
   var $resultBackButton;
   var $codeSubmit;
   var $minionGame;
-  var $welcome;
+  var $background;
   var $code;
   var $timer;
   var $time;
@@ -82,9 +82,9 @@ $(document).ready(function(){
     });
   }
 
-  $welcome = $(".welcome");
-  if($welcome.length) {
-    $('body').addClass('game-bg')
+  $background = $(".background");
+  if($background.length) {
+    $('body').addClass('game-bg');
   }
 
   $code = $(".code");
@@ -137,6 +137,8 @@ $(document).ready(function(){
   $spellInput = $(".spell-input");
   if($spellInput.length) {
     //En la vista game start!
+    $('body').addClass('game-bg2');
+
     spellLength = parseInt($(".game").data("spell-length"), 10);
     $spellSubmit = $(".spell-submit");
     $timer = $(".timer");
