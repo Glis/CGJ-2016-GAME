@@ -82,18 +82,18 @@ $(document).ready(function(){
     changeTurn();
 
     $spellInput.keydown(function(e) {
-        if (e.keyCode === 8 || e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40) {
-            e.preventDefault();
-            return false;
-        } else if(e.keyCode === 13) {
-          e.preventDefault();
-          $spellSubmit.click();
-          return false;
-        };
+      if(e.keyCode === 13) {
+        e.preventDefault();
+        $spellSubmit.click();
+        return false;
+      } else if (!(e.keyCode >= 48 && e.keyCode <= 90)) {
+        e.preventDefault();
+        return false;
+      }
     });
 
     $spellInput.keyup(function(e) {
-      if (e.keyCode != 8 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40 && e.keyCode != 13) {
+      if (e.keyCode >= 48 && e.keyCode <= 90) {
         while(skiped <= turns.length) {
           if(changeTurn()){
             skiped = 0;
