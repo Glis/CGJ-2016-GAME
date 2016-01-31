@@ -15,7 +15,7 @@ class Word < ActiveRecord::Base
   end
 
   def self.get_random_record_without words
-    self.where("name NOT IN (?)", [words]).order("RANDOM()").first
+    self.where("name NOT IN (?)", words).order("RANDOM()").first
   end
 
 end

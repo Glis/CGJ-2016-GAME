@@ -6,6 +6,7 @@ $(document).ready(function(){
   var $minion;
   var turns = [];
   var current_turn = 0;
+  var skiped = 0;
   var spellLength;
 
   $startInput = $(".start-input");
@@ -20,6 +21,7 @@ $(document).ready(function(){
   function changeTurn() {
     var $turn;
     var cyclic_turn;
+    var changed;
 
     //Eliminar el turno anterior
     for(var i=0; i<turns.length; i++){
@@ -30,12 +32,20 @@ $(document).ready(function(){
     });
 
     //Crear turno nuevo
-    cyclic_turn = (current_turn % turns.length)
-    turns[cyclic_turn].active = true
+    cyclic_turn = (current_turn % turns.length);
 
-    $turn = findPosition(cyclic_turn + 1);
-    $turn.css({'background-color':'white', 'color':'black'});
+    if(turns[cyclic_turn].turn_count < turns[cyclic_turn].minionWord.length) {
+      //Es posible crearle un turno
+      turns[cyclic_turn].active = true;
+      turns[cyclic_turn].turn_count++;
+      $turn = findPosition(cyclic_turn + 1);
+      $turn.css({'background-color':'white', 'color':'black'});
+      changed = true;
+    } else {
+      changed = false;
+    }
     current_turn++;
+    return changed;
   }
 
   $('.many-minions').focus();
@@ -62,7 +72,10 @@ $(document).ready(function(){
       turns.push({
         position : $(this).data('position'),
         minionName : $(this).data('name'),
-        active: false
+        minionWord : $(this).data('word'),
+        turn_count: 0,
+        active: false,
+        die: false
       })
     });
     //Primer Turno
@@ -81,7 +94,17 @@ $(document).ready(function(){
 
     $spellInput.keyup(function(e) {
       if (e.keyCode != 8 && e.keyCode != 37 && e.keyCode != 38 && e.keyCode != 39 && e.keyCode != 40 && e.keyCode != 13) {
-        changeTurn();
+        while(skiped <= turns.length) {
+          if(changeTurn()){
+            skiped = 0;
+            break;
+          } else {
+            skiped++;
+          }
+        }
+        if(skiped >= turns.length) {
+          $spellSubmit.click();
+        }
       }
     });
   }

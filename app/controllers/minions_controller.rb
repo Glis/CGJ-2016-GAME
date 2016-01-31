@@ -33,7 +33,7 @@ class MinionsController < ApplicationController
   def show
     @minion=Minion.find params[:id]
     @fake_words=[]
-    @fake_words << Word.get_random_record_without(@minion.game_word.word.name)
-    @fake_words << Word.get_random_record_without(@minion.game_word.word.name)
+    @fake_words << Word.get_random_record_without([@minion.game_word.word.name])
+    @fake_words << Word.get_random_record_without([@minion.game_word.word.name]+@fake_words)
   end
 end
