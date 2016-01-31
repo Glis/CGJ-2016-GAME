@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get 'games/welcome' => 'games#welcome', as: :welcome
   get 'games/new' => 'games#new', as: :game_new
   post 'games/create' => 'games#create', as: :game_create
-  get 'games/joins' => 'games#get_joins', as: :results
-  post 'games/joins' => 'games#show_joins', as: :game_join_show
+  post 'games/joins' => 'games#show_joins', as: :show_joins
 
   get 'games/:id/get_links' => 'games#get_links', as: :game_links
   get 'games/:id/show' => 'games#show', as: :game_show

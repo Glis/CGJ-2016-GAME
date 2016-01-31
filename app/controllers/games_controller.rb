@@ -27,12 +27,22 @@ class GamesController < ApplicationController
     @player_solution = params[:spell]
   end
 
-  def get_joins
-
-  end
-
   def show_joins
-
+    code = params[:code]
+    if code.blank?
+      redirect_to :back
+    else
+      if Minion.where({id:code}).length > 0
+        min = Minion.find code
+        if min.game
+          redirect_to minion_show_path code
+        else
+          redirect_to :back
+        end
+      else
+        redirect_to :back
+      end
+    end
   end
 
 end

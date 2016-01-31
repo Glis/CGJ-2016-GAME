@@ -5,7 +5,14 @@
     </div>
     <div class="col-sm-12 text-center">
       <%= link_to "New Game", game_new_path, class: "btn btn-lg btn-primary" %>
-      <%= link_to "Join Game", game_join_path , class: "btn btn-lg btn-primary" %>
     </div>
+	<div class="col-sm-12 text-center">
+		<h1>Le JOIN</h1>
+		<h2>Intrduce your minion code</h2>
+		<%= form_tag(show_joins_path, method: :post) do %>
+			<%= text_field_tag 'code', '', class: 'clear-style minions' %>
+			<%= submit_tag "Next!", class: "hide" %>
+		<% end -%>
+	</div>
   </div>
 </div>
