@@ -4,7 +4,7 @@
       <h1 class="title1">Name your minions!</h1>
     </div>
   </div>
-  <%= form_tag(minion_create_path(@game), autocomplete: "off" , method: :post) do %>
+  <%= form_tag(minion_create_path(@game), method: :post) do %>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-horizontal">
@@ -23,6 +23,6 @@
         </div>
       </div>
     </div>
-    <%= submit_tag "Onwards!", class: "hide" %>
+    <%= submit_tag "Onwards!", class: "hide names-submit" %>
   <% end %>
 </div>
