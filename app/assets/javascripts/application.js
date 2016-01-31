@@ -17,8 +17,12 @@
 //= require_tree .
 
 $(document).ready(function(){
-  // this.body.onclick = function() {
-  //     req = this.requestFullScreen || this.webkitRequestFullScreen || this.mozRequestFullScreen;
-  //     req.call(this);
-  // }
+  var $tutorial = $(".tutorial");
+
+  $('input').attr('autocomplete', 'false');
+
+  if($tutorial.length) {
+    //Existe elemento tutorial
+    $tutorial.fadeIn('slow').delay(5000).fadeOut('slow');
+  }
 });

@@ -1,25 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="title1">Invite your minions!</h1>
+      <h1 class="title1 text-center">Invite your minions!</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
-      <% @game.minions.each do |minion| %>
-        <div class="row">
-          <div class="col-sm-12">
-            <h2 class="title2 inline">
-              <%= "Turno #{minion.position}: #{minion.name}"%>
-            </h2>
-            <div class="white-pill text-center inline minion-pill">
-              <%= "code: #{minion.id}"%>
-            </div>
-          </div>
+    <% @game.minions.each do |minion| %>
+      <div class="col-sm-6 col-md-4 text-center">
+        <h2 class="title2 inline">
+          <%= "Turno #{minion.position}: #{minion.name}"%>
+        </h2>
+        <div class="white-pill text-center inline minion-pill">
+          <%= "code: #{minion.id}"%>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+  <br><br>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <input type="text" class="clear-style minions text-center start-input" data-url="<%= game_show_url(@game)%>"></input>

@@ -15,6 +15,7 @@ class GamesController < ApplicationController
   end
 
   def get_links
+    @tutorial_message = "Write 'start' to begin the game"
     @game = Game.find params[:id]
   end
 
