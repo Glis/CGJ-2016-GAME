@@ -7,17 +7,17 @@ module GamesHelper
             shifted_library << library[library.index(letter) - rule]
       end
 
-      str = "<table>\n<tr><th>Original </th>"
+      str = "<table><thead>\n<tr>"
       library.each_char do |line|
-      	str += "<td> #{line} </td>\n"
+      	str += "<th> #{line} </th>\n"
       end
-      str += "</tr><tr><th>Cesar "+rule.to_s+ "</th>"
+      str += "</tr><thead></tbody><tr>"
       shifted_library.each_char do |line|
       	str += "<td> #{line} </td>\n"
       end
-      str += "</tr></talbe>\n"
+      str += "</tr></tbody></table>\n"
 
-      tabla="<h2>Leyenda Criptgráfica opcional</h2><br>#{str}"
+      tabla="<h3 class='text-center cipher-help'>The Caesar Code: shift your letters 2 behind!</h3><br><div class='ciphertable'>#{str}</div>"
 
       raw tabla
     end
