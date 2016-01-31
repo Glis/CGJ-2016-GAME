@@ -68,17 +68,6 @@ $(document).ready(function(){
     });
   }
 
-  function gameActive(gameId, callback) {
-      var active;
-      $.get( "/games/"+gameId+"/get", function( data ) {
-          if(data.status == "active"){
-              callback(true);
-          } else {
-              callback(false);
-          }
-      });
-  }
-
   $('.many-minions').focus();
 
   $startInput = $(".start-input");

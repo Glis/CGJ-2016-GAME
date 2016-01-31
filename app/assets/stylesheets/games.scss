@@ -33,11 +33,31 @@
 
 .white-pill {
   color: black;
+  text-shadow: none;
   background-color: white;
   border-radius: 5px;
   min-width: 70px;
   height: auto;
   padding: 1px;
+}
+
+.plank {
+  background-image: url("plank.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.minion-code {
+  border-left: 5px solid rgba(0,0,0,0.5);
+}
+
+.tip {
+  font-size: 25px;
+  font-style: italic;
+  margin-top: 60px;
 }
 
 .main-button{
@@ -61,8 +81,8 @@
   margin-bottom: 10px;
 }
 
-.title2{
-
+.title3 {
+  text-shadow: none;
 }
 
 .subtitle{
@@ -78,8 +98,8 @@
 }
 
 .minions {
-  height: 60px;
-  font-size: 25px;
+  height: 80px;
+  font-size: 40px;
 }
 
 .choose-minions {
