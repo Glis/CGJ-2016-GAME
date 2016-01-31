@@ -5,8 +5,13 @@
     font-family: ProximaNova;
     src: url("proxima_nova_light.otf");
 }
+
+@font-face {
+  font-family: LCD_Solid;
+  src: url("LCD_Solid.ttf");
+}
 .black {
-  font-family: ProximaNova;
+  font-family: LCD_Solid;
   background-color: black;
   color:white;
   width: 100%;
