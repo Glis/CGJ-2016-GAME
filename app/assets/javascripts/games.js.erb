@@ -9,6 +9,7 @@ $(document).ready(function(){
   var $code;
   var $timer;
   var $time;
+  var $wizardImage;
 
   var $minion;
   var turns = [];
@@ -169,6 +170,14 @@ $(document).ready(function(){
     changeTurn();
 
     $spellInput.keydown(function(e) {
+      $wizardImage = $(".wizard-cast");
+      if ($wizardImage) {
+        if($wizardImage.data('status') == "idle") {
+          $wizardImage.attr( "src" , "<%= image_path "wizard.gif"%>" );
+          $wizardImage.data('status', "casting");
+        }
+      }
+
       if(e.keyCode === 13) {
         e.preventDefault();
         $spellSubmit.click();
