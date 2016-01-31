@@ -27,4 +27,12 @@ class GamesController < ApplicationController
     @player_solution = params[:spell]
   end
 
+  def get_joins
+
+  end
+
+  def show_joins
+
+  end
+
 end
