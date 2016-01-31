@@ -30,7 +30,7 @@ class GamesController < ApplicationController
     if @game
       @game.time = params[:time]
       @game.status = "inactive"
-      @game.player_solution = params[:spell]
+      @game.player_solution = params[:spell].upcase
       @game.save
     end
 
