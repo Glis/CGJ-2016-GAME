@@ -28,8 +28,6 @@ class MinionsController < ApplicationController
     end
 
     redirect_to game_links_path(game)
-
-    redirect_to minions_show_path(code)
   end
 
   def show
