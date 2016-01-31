@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'mysql2'
 gem 'faker'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_skin'
