@@ -3,6 +3,8 @@ $(document).ready(function(){
   var $spellInput;
   var $spellSubmit;
   var $resultBackButton;
+  var $codeSubmit;
+  var $code;
   var $timer;
   var $time;
 
@@ -65,6 +67,24 @@ $(document).ready(function(){
             $(location).attr('href', $startInput.data('url'))
           }
         }
+    });
+  }
+
+  $code = $("#code");
+  if($code.length) {
+    $codeSubmit = $(".code-submit");
+    $code.keydown(function(e) {
+      if(e.keyCode === 13) {
+        if($(this).val().toLowerCase()=="new") {
+          e.preventDefault();
+          $(location).attr('href', '/games/new')
+          return false;
+        } else {
+          e.preventDefault();
+          $codeSubmit.click();
+          return true;
+        }
+      }
     });
   }
 

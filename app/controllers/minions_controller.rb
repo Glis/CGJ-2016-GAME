@@ -2,6 +2,7 @@ class MinionsController < ApplicationController
   def new
     @game = Game.find params[:id]
     @minions_quantity= @game.minions_quantity
+    @tutorial_message = "Use TAB to move to next minion. Press Enter to continue"
   end
 
   def create

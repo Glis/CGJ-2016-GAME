@@ -1,10 +1,10 @@
 class GamesController < ApplicationController
   def welcome
-
+    @tutorial_message = "Write new to start a new game"
   end
 
   def new
-
+    @tutorial_message = "Press up/down arrows to change quantity"
   end
 
   def create

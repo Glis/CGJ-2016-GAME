@@ -3,16 +3,13 @@
     <div class="col-sm-12 text-center">
       <h1 class="title1">Crypto Summoners!</h1>
     </div>
-    <div class="col-sm-12 text-center">
-		<%= link_to "New Game", game_new_path, class: "btn btn-lg white-pill main-button" %>
-	</div>
+  </div>
 	<div class="col-sm-12 text-center">
-		<h1>Join a Ritual</h1>
-		<h2>Intrduce your minion code</h2>
+    <h2 class="text-left">New ritual: Enter 'new'</h2>
+    <h2 class="text-left">Join a ritual: Enter your minion code</h2>
 		<%= form_tag(show_joins_path, method: :post) do %>
-			<%= text_field_tag 'code', '', class: 'clear-style minions' %>
-			<%= submit_tag "Next!", class: "hide" %>
+			<%= text_field_tag 'code', '', class: 'clear-style minions text-center' %>
+			<%= submit_tag "Next!", class: "hide code-submit" %>
 		<% end -%>
 	</div>
-  </div>
 </div>
