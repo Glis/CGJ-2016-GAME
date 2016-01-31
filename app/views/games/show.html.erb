@@ -5,9 +5,9 @@
     </div>
   </div>
   <div class="row">
-    <% @game.minions.each do |minion|%>
+    <% @game.minions.order(:position).each do |minion|%>
       <div class="col-md-4">
-        <div class="minion" data-position="<%= minion.position %>" data-name="<%= minion.name %>">
+        <div class="minion" data-position="<%= minion.position %>" data-name="<%= minion.name %>" data-word="<%= minion.game_word.word.name%>">
           <h3 class="title3">
             <%= minion.name %>
           </h2>
