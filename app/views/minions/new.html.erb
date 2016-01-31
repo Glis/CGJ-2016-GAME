@@ -4,7 +4,7 @@
       <h1 class="title1">Name your minions!</h1>
     </div>
   </div>
-  <%= form_tag(minion_create_path(@game), method: :post) do %>
+  <%= form_tag(minion_create_path(@game), autocomplete: "off" , method: :post) do %>
     <div class="row">
       <div class="col-sm-12">
         <div class="form-horizontal">

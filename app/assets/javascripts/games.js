@@ -2,6 +2,7 @@ $(document).ready(function(){
   var $startInput;
   var $spellInput;
   var $spellSubmit;
+  var $resultBackButton;
 
   var $minion;
   var turns = [];
@@ -11,6 +12,7 @@ $(document).ready(function(){
 
   $startInput = $(".start-input");
   $spellInput = $(".spell-input");
+  $resultBackButton= $(".result-back-button");
 
   function findPosition(position) {
     return $('.minion').filter(function(){
@@ -107,5 +109,11 @@ $(document).ready(function(){
         }
       }
     });
+  }
+
+  if($resultBackButton.length){
+      $(document).keypress(function(event){
+          $resultBackButton[0].click();
+      });
   }
 });

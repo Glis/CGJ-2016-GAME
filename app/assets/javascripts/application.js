@@ -19,7 +19,7 @@
 $(document).ready(function(){
   var $tutorial = $(".tutorial");
 
-  $('input').attr('autocomplete', 'false');
+  $('input').attr('autocomplete', 'off');
 
   if($tutorial.length) {
     //Existe elemento tutorial

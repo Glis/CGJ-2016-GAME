@@ -1,15 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <h1 class="title1">Spell ready!</h1>
     </div>
   </div>
   <div class ="row">
-    <div class="col-md-12 text-center">
+    <div class="col-sm-12 text-center">
       <h1 class="title1"> Your spell is <%= @game.solution_percentage(@player_solution).round() %>% accurate!!</h1>
       <% if @game.solution_percentage(@player_solution).round() < 0 %>
         <h3 class="title3">Negative!? Are you even trying?</h3>
       <% end %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h3 class="text-center">Press any key to play again.</h3>
+      <%= link_to "Try again", root_path, class:"hide result-back-button" %>
     </div>
   </div>
 </div>
