@@ -30,15 +30,16 @@ class GamesController < ApplicationController
     if @game
       @game.time = params[:time]
       @game.status = "inactive"
+      @game.player_solution = params[:spell].upcase
       @game.save
     end
 
-    redirect_to game_results_path(@game,spell:params[:spell])
+    redirect_to game_results_path(@game)
   end
 
   def results
     @game = Game.find params[:id]
-    @player_solution = params[:spell]
+    @player_score_percentage=@game.solution_percentage_cesar(@game.player_solution)
   end
 
   def get

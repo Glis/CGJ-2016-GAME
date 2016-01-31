@@ -6,12 +6,12 @@
   </div>
   <div class ="row">
     <div class="col-sm-12 text-center">
-      <h1 class="title1"> Your spell is <%= @game.solution_percentage_cesar(@player_solution).round() %>% accurate!!</h1>
+      <h1 class="title1"> Your spell is <%= @player_score_percentage.round() %>% accurate!!</h1>
       <h3 class="title3"> in <%=@game.time%> secs </h3>
       <h3 class="title3">
-      <% if @game.solution_percentage_cesar(@player_solution).round() < 0 %>
+      <% if @player_score_percentage.round() < 0 %>
         Negative!? Are you even trying?
-      <% elsif @game.solution_percentage_cesar(@player_solution).round() > 90 %>
+      <% elsif @player_score_percentage.round() > 90 %>
         Well done!!
       <% end %>
       </h3>

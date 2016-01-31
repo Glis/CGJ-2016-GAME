@@ -50,27 +50,27 @@ class Game < ActiveRecord::Base
   end
 
   def cesar_encrypt_string rule
-    encrypted = ""
     dictionary="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    self.game_words.each do |word_to_encrypt|
-        word_to_encrypt.word.name.upcase!
-        word_to_encrypt.word.name.each_char do |letter|
-            encrypted << dictionary[dictionary.index(letter) - rule]
-        end
+    cesarcrypted = ""
+
+    encryptedword = self.encrypt_string
+    encryptedword.upcase!
+    encryptedword.each_char do |letter|
+      cesarcrypted << dictionary[dictionary.index(letter) - rule]
     end
-    encrypted
+    cesarcrypted
   end
 
   def atbash_encrypt_string
-    encrypted = ""
     dictionary="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    self.game_words.each do |word_to_encrypt|
-        word_to_encrypt.word.name.upcase!
-        word_to_encrypt.word.name.each_char do |letter|
-            encrypted << dictionary[(dictionary.index(letter)+1)*-1]
-        end
+    atbashcrypted = ""
+
+    encryptedword = self.encrypt_string
+    encryptedword.upcase!
+    encryptedword.each_char do |letter|
+      atbashcrypted << dictionary[(dictionary.index(letter)+1)*-1]
     end
-    encrypted
+    atbashcrypted
   end
 
   def solution_percentage(player_solution)
