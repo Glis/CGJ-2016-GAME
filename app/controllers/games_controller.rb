@@ -33,6 +33,11 @@ class GamesController < ApplicationController
     @player_solution = params[:spell]
   end
 
+  def get
+    game = Game.find params[:id]
+    render json: game
+  end
+
   def show_joins
     code = params[:code]
     if code.blank?

@@ -4,6 +4,7 @@ $(document).ready(function(){
   var $spellSubmit;
   var $resultBackButton;
   var $codeSubmit;
+  var $minionGame;
   var $code;
   var $timer;
   var $time;
@@ -15,11 +16,9 @@ $(document).ready(function(){
   var spellLength;
 
   var tick;
+  var tock;
   var seconds = 0;
-
-  $startInput = $(".start-input");
-  $spellInput = $(".spell-input");
-  $resultBackButton= $(".result-back-button");
+  var gameId;
 
   function findPosition(position) {
     return $('.minion').filter(function(){
@@ -57,8 +56,20 @@ $(document).ready(function(){
     return changed;
   }
 
+  function gameActive(gameId, callback) {
+    var active;
+    $.get( "/games/"+gameId+"/get", function( data ) {
+      if(data.status == "active"){
+        callback(true);
+      } else {
+        callback(false);
+      }
+    });
+  }
+
   $('.many-minions').focus();
 
+  $startInput = $(".start-input");
   if($startInput.length) {
     //En la vista de share_links
     $(document).keypress(function(e) {
@@ -72,6 +83,7 @@ $(document).ready(function(){
 
   $code = $("#code");
   if($code.length) {
+    //En la vista inicial!
     $codeSubmit = $(".code-submit");
     $code.keydown(function(e) {
       if(e.keyCode === 13) {
@@ -88,6 +100,23 @@ $(document).ready(function(){
     });
   }
 
+  $minionGame = $(".minion-game");
+  if($minionGame.length) {
+    //En la vista de game del minion!
+    gameId = $minionGame.data("game");
+    tock = setInterval(function(){
+      gameActive(gameId, function(isActive) {
+        if(isActive) {
+          console.log("El juego continua!");
+        }else{
+          alert("FINISH!");
+          clearInterval(tock);
+        }
+      });
+    }, 500);
+  }
+
+  $spellInput = $(".spell-input");
   if($spellInput.length) {
     //En la vista game start!
     spellLength = parseInt($(".game").data("spell-length"), 10);
@@ -148,6 +177,7 @@ $(document).ready(function(){
     //EN OTRA VISTA DISTINTA AL MAIN GAME!
   }
 
+  $resultBackButton= $(".result-back-button");
   if($resultBackButton.length){
     $(document).keypress(function(e){
       if(e.keyCode === 13) {
