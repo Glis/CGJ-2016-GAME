@@ -8,7 +8,7 @@
     <div class="col-sm-6">
       <% if @player_score_percentage.round() <= 0 %>
           <%= image_tag 'potato.gif', class:'potato img-responsive' %>
-      <% elsif @player_score_percentage.round   () > 0 && @player_score_percentage.round() <= 60 %>
+      <% elsif @player_score_percentage.round() > 0 && @player_score_percentage.round() <= 60 %>
           <%= image_tag 'fairy.gif', class:'slime img-responsive' %>
       <% elsif @player_score_percentage.round() > 60 && @player_score_percentage.round() <= 100 %>
           <%= image_tag 'fairy.gif', class:'monster img-responsive' %>
