@@ -10,10 +10,23 @@
   font-family: LCD_Solid;
   src: url("LCD_Solid.ttf");
 }
+
+.aqua {
+  color:#00f0eb;
+}
+
+.game-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url('background.png');
+  background-size: cover;
+}
+
 .black {
   font-family: LCD_Solid;
   background-color: black;
   color:white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   width: 100%;
   height: 100%;
 }
@@ -31,6 +44,16 @@
   font-size: 24px;
   margin-right: 20px;
   padding: 5px;
+}
+
+.crypto-image {
+  width: auto;
+  height: 215px;
+}
+
+.mesa-image {
+  width: auto;
+  height: 215px;
 }
 
 .title1{
@@ -57,6 +80,15 @@
 .minions {
   height: 60px;
   font-size: 25px;
+}
+
+.choose-minions {
+  height: 120px;
+  font-size: 70px;
+}
+
+.minion-group {
+  margin-top: 120px;
 }
 
 .minion-pill {
@@ -97,6 +129,7 @@
   filter: url('#blur');
   filter: blur(5px);
   display: none;
+  text-shadow: none;
 }
 
 b{

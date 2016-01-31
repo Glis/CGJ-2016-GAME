@@ -1,15 +1,22 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 text-center">
-      <h1 class="title1">Crypto Summoners!</h1>
+      <%= image_tag 'title.png', class:'crypto-image'%>
     </div>
   </div>
-	<div class="col-sm-12 text-center">
-    <h2 class="subtitle text-left">New ritual: Enter 'new'</h2>
-    <h2 class="subtitle text-left">Join a ritual: Enter your minion code</h2>
-		<%= form_tag(show_joins_path, method: :post) do %>
-			<%= text_field_tag 'message', '', class: 'clear-style minions text-center code' %>
-			<%= submit_tag "Next!", class: "hide code-submit" %>
-		<% end -%>
-	</div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h3 class="text-left"><span class="aqua">New ritual:</span> Enter 'new'</h3>
+      <h3 class="text-left"><span class="aqua">Join a ritual:</span> Enter your minion code</h3>
+      <%= form_tag(show_joins_path, method: :post) do %>
+        <%= text_field_tag 'message', '', class: 'clear-style minions text-center code' %>
+        <%= submit_tag "Next!", class: "hide code-submit" %>
+      <% end -%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <%= image_tag 'mesa.gif', class:'mesa-image'%>
+    </div>
+  </div>
 </div>

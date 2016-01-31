@@ -1,3 +1,4 @@
 $(document).ready(function(){
-  $(".minions:first").focus();
+    $(".minions:first").focus();
+    $(".choose-minions:first").focus();
 });

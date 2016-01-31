@@ -5,6 +5,7 @@ $(document).ready(function(){
   var $resultBackButton;
   var $codeSubmit;
   var $minionGame;
+  var $welcome;
   var $code;
   var $timer;
   var $time;
@@ -90,6 +91,11 @@ $(document).ready(function(){
           }
         }
     });
+  }
+
+  $welcome = $(".welcome");
+  if($welcome.length) {
+    $('body').addClass('game-bg')
   }
 
   $code = $(".code");
