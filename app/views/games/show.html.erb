@@ -17,10 +17,10 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <%= form_tag(minion_create_path(5), method: :post) do %>
-          <%= text_area_tag 'incantation', nil, rows: 11, class:"clear-style minions text-center spell-input" %>
+      <%= form_tag(game_results_path(@game), method: :post) do %>
+          <%= text_area_tag 'spell', nil, rows: 11, class:"clear-style minions text-center spell-input" %>
           <br>
-          <%= submit_tag "Summon!", class: "hide" %>
+          <%= submit_tag "Summon!", class: "hide spell-submit" %>
       <% end %>
       <div class="row">
         <div class="col-sm-12">

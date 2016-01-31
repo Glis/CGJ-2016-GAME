@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var $startInput;
   var $spellInput;
+  var $spellSubmit;
 
   var $minion;
   var turns = [];
@@ -53,6 +54,7 @@ $(document).ready(function(){
   if($spellInput.length) {
     //En la vista game start!
     spellLength = parseInt($(".game").data("spell-length"), 10);
+    $spellSubmit = $(".spell-submit");
 
     //Obtiene los turnos del DOM
     $minion = $('.minion');
@@ -71,7 +73,9 @@ $(document).ready(function(){
             e.preventDefault();
             return false;
         } else if(e.keyCode === 13) {
-          alert("SUBMIT FORM!");
+          e.preventDefault();
+          $spellSubmit.click();
+          return false;
         };
     });
 

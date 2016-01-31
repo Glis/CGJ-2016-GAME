@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'games/:id/get_links' => 'games#get_links', as: :game_links
   get 'games/:id/show' => 'games#show', as: :game_show
   post 'games/:id/calculate' => 'games#calculate', as: :game_calculate
-  get 'games/:id/results' => 'games#results', as: :game_results
+  post 'games/:id/results' => 'games#results', as: :game_results
 
   get 'games/:id/minions/new' => 'minions#new', as: :minion_new
   post 'games/:id/minions/create' => 'minions#create', as: :minion_create

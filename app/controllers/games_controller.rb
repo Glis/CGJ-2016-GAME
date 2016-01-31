@@ -23,7 +23,8 @@ class GamesController < ApplicationController
   end
 
   def results
-
+    @game = Game.find params[:id]
+    @player_solution = params[:spell]
   end
 
 end
