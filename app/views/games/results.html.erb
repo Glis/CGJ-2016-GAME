@@ -1,26 +1,40 @@
-<div class="container">
+<div class="container background-result">
   <div class="row">
     <div class="col-sm-12">
       <h1 class="title1">Spell ready!</h1>
     </div>
   </div>
   <div class ="row">
-    <div class="col-sm-12 text-center">
-      <h1 class="title1"> Your spell is <%= @player_score_percentage.round() %>% accurate!!</h1>
-      <h3 class="title3"> in <%=@game.time%> secs </h3>
-      <h3 class="title3">
-      <% if @player_score_percentage.round() < 0 %>
-        Negative!? Are you even trying?
-      <% elsif @player_score_percentage.round() > 90 %>
-        Well done!!
+    <div class="col-sm-6 text-center">
+      <h2 class="title2"> Your spell is <%= @player_score_percentage.round() %>% accurate!!</h2>
+      <h3 class="title3"> Finished in <%=@game.time%> secs </h3>
+      <h2 class="title2">
+        <% if @player_score_percentage.round() <= 0 %>
+          <div class="feedback">Are you even trying!?</div>
+          <h3> You have summoned: Last minute potato</h3>
+        <% elsif @player_score_percentage.round() > 0 && @player_score_percentage.round() <= 60 %>
+          <div class="feedback">Well done!!</div>
+          <h3> You have summoned: Sad Goo!</h3>
+        <% elsif @player_score_percentage.round() > 60 && @player_score_percentage.round() <= 100 %>
+          <div class="feedback">COOOL!!</div>
+          <h3> You have summoned: Hope</h3>
+        <% end %>
+      </h2>
+    </div>
+    <div class="col-sm-6">
+      <% if @player_score_percentage.round() <= 0 %>
+        <%= image_tag 'potato.gif', class:'potato' %>
+      <% elsif @player_score_percentage.round() > 0 && @player_score_percentage.round() <= 60 %>
+        <%= image_tag 'slime.gif', class:'slime' %>
+      <% elsif @player_score_percentage.round() > 60 && @player_score_percentage.round() <= 100 %>
+        <%= image_tag 'fairy.gif', class:'monster' %>
       <% end %>
-      </h3>
     </div>
   </div>
   <br>
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <h3 class="text-center">Press 'enter' to play again.</h3>
+      <h3 class="text-center play-again">Press 'enter' to play again.</h3>
       <%= link_to "Try again", root_path, class:"hide result-back-button" %>
     </div>
   </div>
