@@ -1,6 +1,22 @@
+# == Schema Information
+#
+# Table name: games
+#
+#  id               :integer          not null, primary key
+#  points           :integer
+#  token            :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  minions_quantity :integer
+#  status           :integer          default(0)
+#  time             :integer          default(0)
+#
+
 class Game < ActiveRecord::Base
   has_many :minions
   has_many :game_words
+
+  enum status: [:active, :inactive]
 
   def spell_length
     count = 0
