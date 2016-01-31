@@ -18,6 +18,15 @@ class Game < ActiveRecord::Base
 
   enum status: [:active, :inactive]
 
+  def as_json(options={})
+    {
+      points:self.points,
+      status:self.status,
+      time:self.time,
+      minions:self.minions
+    }
+  end
+
   def spell_length
     count = 0
     self.game_words.each do |game_word|

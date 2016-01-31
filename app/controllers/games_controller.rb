@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def welcome
-    @tutorial_message = "Write new to start a new game"
+    @tutorial_message = "Write 'new' to start a new game"
   end
 
   def new
@@ -25,8 +25,17 @@ class GamesController < ApplicationController
 
   def results
     @game = Game.find params[:id]
+    if @game
+      @game.time = params[:time]
+      @game.status = "inactive"
+      @game.save
+    end
     @player_solution = params[:spell]
-    @player_time = params[:time]
+  end
+
+  def get
+    game = Game.find params[:id]
+    render json: game
   end
 
   def show_joins

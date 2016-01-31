@@ -14,4 +14,12 @@
 class Minion < ActiveRecord::Base
   belongs_to :game
   belongs_to :game_word
+
+  def as_json(options={})
+    {
+      position:self.position,
+      name:self.name,
+      word:self.game_word.word.name
+    }
+  end
 end

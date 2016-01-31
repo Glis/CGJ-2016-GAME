@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'games/create' => 'games#create', as: :game_create
   post 'games/joins' => 'games#show_joins', as: :show_joins
 
+  get 'games/:id/get' => 'games#get', as: :get_game, :defaults => { format:'json' }
   get 'games/:id/get_links' => 'games#get_links', as: :game_links
   get 'games/:id/show' => 'games#show', as: :game_show
   post 'games/:id/calculate' => 'games#calculate', as: :game_calculate
