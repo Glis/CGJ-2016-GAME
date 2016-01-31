@@ -1,14 +1,14 @@
 <div class="container minion-game" data-game="<%= @minion.game.id %>">
     <div class="row">
-      <div class="col-sm-5">
+      <div class="col-xs-12 col-sm-5">
         <h1 class="title1 text-center">Wizard Image</h1>
       </div>
-      <div class="col-sm-7">
+      <div class="col-xs-12 col-sm-7">
         <div class="text-center">
-          <h1 class="title1"> YOUR TURN IS <%= @minion.position %></h1>
-          <h2 class="subtitle"><%= @fake_words[0].name %></h2>
-          <h2 class="subtitle"><b><%= @minion.game_word.word.name %></b></h2>
-          <h2 class="subtitle"><%= @fake_words[1].name %></h2>
+          <h3 class="title1"> YOUR TURN IS <%= @minion.position %></h3>
+          <h2 class="word-text"><%= @fake_words[0].name %></h2>
+          <h2 class="word-text"><b><%= @minion.game_word.word.name %></b></h2>
+          <h2 class="word-text"><%= @fake_words[1].name %></h2>
         </div>
         <div class="row">
           <div class="col-sm-12">
