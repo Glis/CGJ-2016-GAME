@@ -19,10 +19,10 @@
 $(document).ready(function(){
   var $tutorial = $(".tutorial");
 
+  $('input').attr('autocomplete', 'false');
+
   if($tutorial.length) {
     //Existe elemento tutorial
-
     $tutorial.fadeIn('slow').delay(5000).fadeOut('slow');
   }
-
 });
