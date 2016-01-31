@@ -26,6 +26,7 @@ class GamesController < ApplicationController
   def results
     @game = Game.find params[:id]
     @player_solution = params[:spell]
+    @player_time = params[:time]
   end
 
   def show_joins
