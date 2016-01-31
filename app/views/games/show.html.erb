@@ -17,7 +17,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <%= form_tag(game_results_path(@game), method: :post) do %>
+      <%= form_tag(game_calculate_path(@game), method: :post) do %>
           <%= hidden_field_tag 'time' %>
           <%= text_area_tag 'spell', nil, rows: 11, class:"clear-style minions text-center spell-input" %>
           <br>

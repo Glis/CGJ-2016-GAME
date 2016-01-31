@@ -8,7 +8,7 @@
     <h2 class="subtitle text-left">New ritual: Enter 'new'</h2>
     <h2 class="subtitle text-left">Join a ritual: Enter your minion code</h2>
 		<%= form_tag(show_joins_path, method: :post) do %>
-			<%= text_field_tag 'code', '', class: 'clear-style minions text-center' %>
+			<%= text_field_tag 'message', '', class: 'clear-style minions text-center code' %>
 			<%= submit_tag "Next!", class: "hide code-submit" %>
 		<% end -%>
 	</div>

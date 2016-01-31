@@ -6,13 +6,14 @@ Rails.application.routes.draw do
   get 'games/welcome' => 'games#welcome', as: :welcome
   get 'games/new' => 'games#new', as: :game_new
   post 'games/create' => 'games#create', as: :game_create
+  get 'games/join' => 'games#join_mobile', as: :join_game
   post 'games/joins' => 'games#show_joins', as: :show_joins
 
   get 'games/:id/get' => 'games#get', as: :get_game, :defaults => { format:'json' }
   get 'games/:id/get_links' => 'games#get_links', as: :game_links
   get 'games/:id/show' => 'games#show', as: :game_show
   post 'games/:id/calculate' => 'games#calculate', as: :game_calculate
-  post 'games/:id/results' => 'games#results', as: :game_results
+  get 'games/:id/results' => 'games#results', as: :game_results
 
   get 'games/:id/minions/new' => 'minions#new', as: :minion_new
   post 'games/:id/minions/create' => 'minions#create', as: :minion_create

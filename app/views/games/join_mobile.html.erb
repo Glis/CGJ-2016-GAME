@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h1 class="title1">Crypto Summoners!</h1>
+    </div>
+  </div>
+  <div class="col-sm-12 text-center">
+    <h2 class="subtitle text-left">To join a ritual: Enter your minion code</h2>
+    <%= form_tag(show_joins_path, method: :post) do %>
+        <%= text_field_tag 'message', '', class: 'clear-style minions text-center' %>
+        <%= submit_tag "Next!", class: "hide code-submit" %>
+    <% end -%>
+  </div>
+</div>

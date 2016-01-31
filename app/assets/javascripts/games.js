@@ -67,6 +67,17 @@ $(document).ready(function(){
     });
   }
 
+  function gameActive(gameId, callback) {
+      var active;
+      $.get( "/games/"+gameId+"/get", function( data ) {
+          if(data.status == "active"){
+              callback(true);
+          } else {
+              callback(false);
+          }
+      });
+  }
+
   $('.many-minions').focus();
 
   $startInput = $(".start-input");
@@ -81,7 +92,7 @@ $(document).ready(function(){
     });
   }
 
-  $code = $("#code");
+  $code = $(".code");
   if($code.length) {
     //En la vista inicial!
     $codeSubmit = $(".code-submit");
@@ -89,7 +100,7 @@ $(document).ready(function(){
       if(e.keyCode === 13) {
         if($(this).val().toLowerCase()=="new") {
           e.preventDefault();
-          $(location).attr('href', '/games/new')
+          $(location).attr('href', '/games/new');
           return false;
         } else {
           e.preventDefault();
@@ -109,7 +120,19 @@ $(document).ready(function(){
         if(isActive) {
           console.log("El juego continua!");
         }else{
-          alert("FINISH!");
+          alert("Spell has been casted!");
+          //  $.ajax({
+          //      method: "POST",
+          //      url: '/games/'+gameId+'/results'
+          //      data: {
+          //              'spell'=>
+          //      }
+          //  }).done(function( msg ) {
+          //      $(location).attr('href', '/games/'+gameId+'/results');
+          //  });
+          //  $.post( '/games/'+gameId+'/results', function( data ) {
+          //      alert(data);
+          //  });
           clearInterval(tock);
         }
       });
